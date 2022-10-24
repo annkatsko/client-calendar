@@ -1,0 +1,32 @@
+{% load crispy_forms_tags %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% if request.user.is_authenticated %}
+        <div class="card">
+<div class="card-body">
+<h4 class="card-title">Log in to your account</h4>
+
+<form method="post">
+{% csrf_token %}
+<input type="hidden" name="next" value="{{ next }}">
+
+{{ form|crispy }}
+
+<button type="submit" class="btn btn-primary btn-block">Save</button>
+</form>
+</div>
+</div>
+
+{% else %}
+    &lt;a href="{% url 'login' %}"&gt;Login&lt;/a&gt;
+{% endif %}
+
+</body>
+</html>
