@@ -6,7 +6,7 @@ from django.views.generic.edit import CreateView
 from .models import Profile
 
 class ClientLoginView(LoginView):
-    next_page = '/welcome/create_profile_page/'
+    next_page = '/homepage'
 
 
 
@@ -33,7 +33,7 @@ class ProfileCreatePageView(CreateView):
         form.instance.user = self.request.user
         return super().form_valid(form)
 
-    success_url = '/'
+    success_url = 'homepage/'
 
 
 class ClientLogoutView(LogoutView):
