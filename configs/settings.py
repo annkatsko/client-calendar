@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
-
+import os
 from pathlib import Path
 import environ
 
@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'bootstrap4',
     'home_page',
+    'client_calendar',
 ]
 
 MIDDLEWARE = [
@@ -140,5 +141,13 @@ DATE_FORMAT = 'j E Y'
 DATE_INPUT_FORMATS = ['%d.%m.%Y']
 TIME_FORMAT = 'H:i'
 DATETIME_INPUT_FORMATS = ['%d.%m.%Y %H:%M']
-LOGIN_REDIRECT_URL =  '/'
+LOGIN_REDIRECT_URL = '/homepage'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+LOGIN_URL = '/'
+LOGOUT_REDIRECT_URL = "/welcome/login"
+
+STATIC_URL = 'static/'
+
+STATICFILES_DIRS = [
+   os.path.join(BASE_DIR, "static"),
+]

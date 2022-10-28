@@ -1,32 +1,30 @@
+{% extends  'home_page/base.html' %}
 {% load crispy_forms_tags %}
 
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    {% if request.user.is_authenticated %}
-        <div class="card">
-<div class="card-body">
-<h4 class="card-title">Log in to your account</h4>
-
-<form method="post">
-{% csrf_token %}
-<input type="hidden" name="next" value="{{ next }}">
-
-{{ form|crispy }}
-
-<button type="submit" class="btn btn-primary btn-block">Save</button>
-</form>
-</div>
-</div>
-
-{% else %}
-    &lt;a href="{% url 'login' %}"&gt;Login&lt;/a&gt;
-{% endif %}
-
-</body>
-</html>
+{% block content %}
+  <div class="mask d-flex align-items-center h-100 gradient-custom-3 mt-5 mb-5">
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-9 col-lg-8 col-xl-6">
+          <div class="card" style="border-radius: 15px;">
+            <div class="card-body p-5">
+                {% if request.user.is_authenticated %}
+                <h2 class="text-uppercase text-center mb-5">Редактировать профиль</h2>
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="row">
+                        <div class="col-md-12 mb-4">
+                           {{ form|crispy }}
+                        </div>
+                            <button class="btn btn-dark btn-lg btn-block mb-3" type="submit">Сохранить</button>
+                {% endif %}
+                        </div>
+                    </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+ {% endblock %}

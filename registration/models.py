@@ -1,6 +1,7 @@
 from django.db import models
 
 from django.contrib.auth.models import User
+from django.urls import reverse
 
 
 class Profile(models.Model):
@@ -10,17 +11,28 @@ class Profile(models.Model):
          ('MG', 'Набор мышечной массы',),
     )
 
+    GYM_NAME = (
+        ('NB', 'Новая Боровая "Vibe"'),
+        ('NEM', 'Немига "GymBox"')
+    )
+
     user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
+    first_name = models.CharField('Имя', max_length=50, null=True, blank=False)
+    last_name = models.CharField('Фамилия', max_length=50, null=True, blank=False)
     phone_number = models.CharField('Номер телефона',max_length=50, null=True, blank=True)
-    birthday_date = models.DateField(blank=False)
+    birthday_date = models.DateField('Дата рождения', blank=False)
     instagram = models.CharField('Ник в Instagram', max_length=50, null=True, blank=True)
     telegram = models.CharField('Ник в Telegram', max_length=50, null=True, blank=False)
     email = models.EmailField('Email', max_length=50, null=True, blank=False)
     start_date = models.DateField(auto_now=True, blank=False)
-    goal = models.CharField(max_length=2, choices=GOALS, blank=False, default='Физическая активность')
+    goal = models.CharField('Цель', max_length=50, choices=GOALS, blank=False, default='Физическая активность')
+    gym_name = models.CharField('Зал', choices=GYM_NAME, blank=False, max_length=50, default='Новая Боровая "Vibe')
+
 
     def __str__(self):
         return str(self.user)
 
+    def get_absolute_url(self):
+        return reverse('profile', kwargs={'pk':self.pk})
 
 
