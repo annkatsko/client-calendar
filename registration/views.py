@@ -1,6 +1,6 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponseRedirect
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
 from django.views.generic import TemplateView, CreateView, UpdateView
 from django.views.generic.detail import DetailView
@@ -54,8 +54,13 @@ class WelcomeView(TemplateView):
             return HttpResponseRedirect(reverse('login'))
 
 
-class UserRegistrationCreateView(CreateView):
-    template_name = 'registration/register_user.html'
-    form_class = RegisterForm
-    success_url = '/welcome/login/'
 
+def register_user(request):
+    if request.method == 'POST':
+        form = RegisterForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('login')
+    else:
+        form = RegisterForm()
+    return render(request, 'registration/register_user.html', {'form': form})
