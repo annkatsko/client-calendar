@@ -39,29 +39,22 @@ class GoogleCalendar(object):
     def get_events_list(self):
         now = datetime.datetime.utcnow().isoformat() + 'Z'
         in_week = (datetime.datetime.utcnow() + datetime.timedelta(days=6)).isoformat() + 'Z'
-        print('Getting the upcoming 10 events')
         events_result = self.service.events().list(calendarId=calendarId,
                                                    timeMin=now, singleEvents=True,
                                                    timeMax=in_week,
                                                    orderBy='startTime').execute()
         events = events_result.get('items', [])
 
+        event_info = {}
         if not events:
-            print('No upcoming events found.')
+            return 'No upcoming events found.'
         for event in events:
-            start = event['start'].get('dateTime', event['start'].get('date'))
-            desc = event.get('summary')
-            print(start, desc)
+            session_time_info = event['start'].get('dateTime')
+
+            event_info[event.get('summary')] = {'date': session_time_info[:session_time_info.find('T')],
+                                                'time': session_time_info[session_time_info.find('T')+1:-9]}
 
 
-calendar = GoogleCalendar()
-print("+ - create event\n? - print event list\n")
-c = input()
+        return event_info
 
-if c == '+':
-    event = calendar.create_event_dict()
-    calendar.create_event(event)
-elif c == '?':
-    calendar.get_events_list()
-else:
-    pass
+
