@@ -38,23 +38,23 @@ class GoogleCalendar(object):
     # вывод списка из десяти предстоящих событий
     def get_events_list(self):
         now = datetime.datetime.utcnow().isoformat() + 'Z'
-        in_week = (datetime.datetime.utcnow() + datetime.timedelta(days=6)).isoformat() + 'Z'
+        in_a_week = (datetime.datetime.utcnow() + datetime.timedelta(days=6)).isoformat() + 'Z'
         events_result = self.service.events().list(calendarId=calendarId,
                                                    timeMin=now, singleEvents=True,
-                                                   timeMax=in_week,
+                                                   timeMax=in_a_week,
                                                    orderBy='startTime').execute()
         events = events_result.get('items', [])
-
-        event_info = {}
+        clients_sessions_info = {}
         if not events:
-            return 'No upcoming events found.'
+            return None
+
+        session_info = []
         for event in events:
             session_time_info = event['start'].get('dateTime')
-
-            event_info[event.get('summary')] = {'date': session_time_info[:session_time_info.find('T')],
-                                                'time': session_time_info[session_time_info.find('T')+1:-9]}
-
-
-        return event_info
+            session_info.append({'date': session_time_info[:session_time_info.find('T')],
+                                'time': session_time_info[session_time_info.find('T')+1:-9]})
+        for event in events:
+            clients_sessions_info[event.get('summary')] = dict(zip(range(1, len(events)), session_info))
+        return clients_sessions_info
 
 

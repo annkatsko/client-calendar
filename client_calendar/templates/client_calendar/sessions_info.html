@@ -2,19 +2,33 @@
 
 
 {% block content%}
-<div class="card text-center">
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+        <div class="card text-center mt-5">
   <div class="card-header">
     Информация
   </div>
+
   <div class="card-body">
-    <h5 class="card-title">Следующая тренировка</h5>
-    <p class="card-text">{{date}}</p>
-    <p class="card-text">{{time}}</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <h5 class="card-title">{{user.username}} , Ваши тренировки</h5>
+      <ul class="list-group">
+          {% for key, val in info.items %}
+            <li class="list-group-item">{{val.date}} в {{val.time}}</li>
+          {% endfor %}
+        </ul>
+
+
   </div>
   <div class="card-footer text-muted">
     2 days ago
   </div>
 </div>
+
+    </div>
+  </div>
+</div>
+
 
 {% endblock %}
