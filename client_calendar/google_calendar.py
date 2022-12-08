@@ -7,8 +7,7 @@ from googleapiclient.discovery import build
 SCOPES = ['https://www.googleapis.com/auth/calendar']
 
 calendarId = '4ef49f9c5a93b050a65df71b6445840cc97ce43859d93e6eaceeb9aa8c27fa12@group.calendar.google.com'
-SERVICE_ACCOUNT_FILE = 'coach-helper-366918-d7b6d7a657a1.json'
-
+SERVICE_ACCOUNT_FILE = 'coach-helper-366918-5c2bfc18abf8.json'
 
 class GoogleCalendar(object):
     def __init__(self):

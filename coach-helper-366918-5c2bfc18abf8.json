@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "coach-helper-366918",
+  "private_key_id": "5c2bfc18abf83b1cfd314354415fd29279dd175d",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCtHaajI6bHNjpo\neAf6T8CXVMryiW1Uh86NQ+TfvvlUvqQVOAXROd2lzlvKBGVjUGj6MmNVoVbwexBH\n1NSWr4P144la9BckAmwzwa3GzO0+4IfLP5Iy8HwCerH7Er+IUi8DfsL0roR6eXoL\nUFmzO6Ab7JbYcpV/qgNZaYvIyXablQ45lXdIw8GDhhCgn5oVV1iN1vZAyTbk6kge\neQLmLVJF3XtVUrXAhL+UXiQxJOKMPqTKOv9UB4d1q9LO0Ar17DH8lyeHO7nHQoBe\nGfFZUd5kC4kPvRf3bGA5PZsab+/XXTEpFBmAVsmnUlMNi716rQ8qLsPOZQt2RSDx\nfFCh1CRzAgMBAAECggEACuaA28+reVDtapVfdmzXi2/X+5LMFieBY2m9m2asaNNv\narQ4jlnenmMZBBmbKYUic9nNlJ9WskiKPn7YB/wmcTD4ZCHvsK4qXzPraK1cpVOA\nzKGrGspqGvao04HBtHUgTelvn/W6x8KmyaTJXe/7y+ZUAgfTaNKtG7ZgPXtaAyYy\nSQkYyB8Yq1TjhVhWfxrjWKqukgyp9rjFcayX72ULsbiPD+XkHKzLd0QOxKNhh9L3\n/fc5gpyo+hyFmKcQ/0BH5q3UHN5J7YElPY20Hov2FzWdtyP0admblvMFxAklNc+J\nOZF+YRg3TGB96BvEFrYOndJX5Vam4+DpukM4xTj4aQKBgQDq9QcHsVQtTDoEJGu5\nry/ZM9CXYTxwdjzpARB9sG2/RGNkPO0yx8zCOLqzh4zld4bYU2tRaCyrtXzykEBI\n0KdNSqSJN5eBUXF0gmSyJVUzpIwXy1GFDFfPQL1Pv0G7g/QyqSqoJT+b3ceDUiCQ\nAV11iYXcEBpX8TaFyYQ8gwJt/QKBgQC8nsI15XxCgxu7QJ59b4kA2XvA+2oiEtel\nNp4bYFgEb3oRAx7zW+vBsyoR1wHy7nKaJOWsPnoeioDB7CklmGRGPm154JI3wOBS\nuP7t62+65EqRMafwNWLqffpsvZnMOASkQTw3F4IbAMe55S1aKQOieBcjC5FYwI/z\nrwzyFZqvLwKBgQCzid8AWtnm70uZ5LbIofyfLb/kHTJRAZjTt7OBR/Lk5/5HF2Nt\nnU1y0GSiUR8yLV7GKSBliYQxBbLfq6jju0VMg5AtJmTINZLLo+QMWQi9OKywdfXq\nBB+JSIAg0xYIkvFkUO4+pI/xq8wMJhKp19Exwo+eNFPdBX5TR0Sb9MRDhQKBgAkC\nJBBi525dyKNG0Mr42rg5qtlqqIT8FWSEmUSBc3KyyEeruHyy9S2JGwdDF4q8rKiD\n/pwdV8PBpaidWNG8130rWhsqCJG1GoGY6EQArJNmd9E7Z+PnCNReM+mhnIjOXBpk\nKzYOX15eySstsN7Peqb1yVUZJlXwzG88+wdM1NhtAoGARjDf9sO83GQFX7ajqBGt\nJmqlb576omcBCfLJPidGfvBkwMxuD+XMTXyTRwx8TUnwXafj5thS7mHW/Olm+XbU\nSxDzb93jLaMO/Mm+7qankmKB01/xZiXBoaSA6v1ZIDoKOgfXdsMEjb4+jk9oHD+p\nY55oqqinbr4EijhPaNaYBaE=\n-----END PRIVATE KEY-----\n",
+  "client_email": "test-638@coach-helper-366918.iam.gserviceaccount.com",
+  "client_id": "107988329856082354097",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/test-638%40coach-helper-366918.iam.gserviceaccount.com"
+}
