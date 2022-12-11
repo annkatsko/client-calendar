@@ -1,13 +1,28 @@
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponseRedirect
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import render
 from django.urls import reverse
-from django.views.generic import TemplateView, CreateView, UpdateView
-from django.views.generic.detail import DetailView
-from .forms import RegisterForm
-
+from django.views.generic import TemplateView, UpdateView
+from .forms import UserRegistrationForm, UserEditForm, ProfileEditForm
 from .models import Profile
 
+
+@login_required
+def edit(request):
+    if request.method == 'POST':
+        user_form = UserEditForm(instance=request.user, data=request.POST)
+        profile_form = ProfileEditForm(instance=request.user.profile, data=request.POST, files=request.FILES)
+        if user_form.is_valid() and profile_form.is_valid():
+            user_form.save()
+            profile_form.save()
+    else:
+        user_form = UserEditForm(instance=request.user)
+        profile_form = ProfileEditForm(instance=request.user.profile)
+    return render(request,
+                      'registration/create_profile.html',
+                      {'user_form': user_form,
+                       'profile_form': profile_form})
 
 class ProfileCreatePageView(LoginRequiredMixin, UpdateView):
     model = Profile
@@ -57,10 +72,17 @@ class WelcomeView(TemplateView):
 
 def register_user(request):
     if request.method == 'POST':
-        form = RegisterForm(request.POST)
-        if form.is_valid():
-            form.save()
+        user_form = UserRegistrationForm(request.POST)
+        if user_form.is_valid():
+            user_form.save()
+            new_user = user_form.save(commit=False)
+            new_user.set_password(user_form.cleaned_data['password'])
+            new_user.save()
+            profile = Profile.objects.create(user=new_user)
+            profile.first_name = user_form.cleaned_data['first_name']
+            profile.last_name = user_form.cleaned_data['last_name']
+            profile.email = user_form.cleaned_data['email']
             return HttpResponseRedirect(reverse('login'))
     else:
-        form = RegisterForm()
+        form = UserRegistrationForm()
     return render(request, 'registration/register_user.html', {'form': form})

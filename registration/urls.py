@@ -3,10 +3,11 @@ from django.urls import path
 from .views import WelcomeView, ProfileCreatePageView, register_user
 from django.contrib.auth.views import LoginView, LogoutView, PasswordResetView, PasswordResetDoneView, \
     PasswordResetConfirmView, PasswordResetCompleteView
+from .views import edit
 
 urlpatterns = [
     path('login/', LoginView.as_view(), name='login'),
-    path('create_profile_page/<int:pk>/', ProfileCreatePageView.as_view(), name='create_user_profile'),
+    path('create_profile_page/', edit, name='create_user_profile'),
     path('logout/', LogoutView.as_view(), name='logout'),
     path('', WelcomeView.as_view(), name='welcome'),
     path('registration/', register_user, name='registration'),

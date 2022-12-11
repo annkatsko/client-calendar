@@ -1,95 +1,110 @@
+<!--{% extends 'home_page/base.html'%}-->
+
+
+<!--{% block content%}-->
+<!--  <section id="hero" class="d-flex flex-column justify-content-center">-->
+<!--    <div class="container" data-aos="zoom-in" data-aos-delay="100">-->
+<!--       <h1>Coach Helper</h1>-->
+<!--      <p>Это Ваш фитнес <span class="typed" data-typed-items="помощник, дневник, календарь"></span></p>-->
+<!--<div class="mt-5">-->
+<!--    <h3> Добро пожаловать, {{ user.first_name }}!</h3>-->
+
+<!--<button type="button" class="btn btn-light mt-4"><a href="{% url 'logout'%}"> Выйти из учетной записи </a></button>-->
+<!--<button type="button" class="btn btn-light mt-4"><a href="{% url 'create_user_profile'%}"> Заполнить профиль</a></button>-->
+
+
+<!--</div>-->
+
+<!--  </section>&lt;!&ndash; End Hero &ndash;&gt;-->
+<!--<div class="container-fluid">-->
+<!--  <section>-->
+<!--    <div class="row">-->
+<!--      <div class="col-12 mt-3 mb-1">-->
+<!--        <h5 class="text-uppercase">Minimal Statistics Cards</h5>-->
+<!--        <p>Statistics on minimal cards.</p>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div class="row">-->
+<!--      <div class="col-xl-3 col-sm-6 col-12 mb-4">-->
+<!--        <div class="card">-->
+<!--          <div class="card-body">-->
+<!--            <div class="d-flex justify-content-between px-md-1">-->
+<!--              <div class="align-self-center">-->
+<!--                <i class="fas fa-pencil-alt text-info fa-3x"></i>-->
+<!--              </div>-->
+<!--              <div class="text-end">-->
+<!--                <h3>278</h3>-->
+<!--                <p class="mb-0">New Posts</p>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="col-xl-3 col-sm-6 col-12 mb-4">-->
+<!--        <div class="card">-->
+<!--          <div class="card-body">-->
+<!--            <div class="d-flex justify-content-between px-md-1">-->
+<!--              <div class="align-self-center">-->
+<!--                <i class="far fa-comment-alt text-warning fa-3x"></i>-->
+<!--              </div>-->
+<!--              <div class="text-end">-->
+<!--                <h3>156</h3>-->
+<!--                <p class="mb-0">New Comments</p>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="col-xl-3 col-sm-6 col-12 mb-4">-->
+<!--        <div class="card">-->
+<!--          <div class="card-body">-->
+<!--            <div class="d-flex justify-content-between px-md-1">-->
+<!--              <div class="align-self-center">-->
+<!--                <i class="fas fa-chart-line text-success fa-3x"></i>-->
+<!--              </div>-->
+<!--              <div class="text-end">-->
+<!--                <h3>64.89 %</h3>-->
+<!--                <p class="mb-0">Bounce Rate</p>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="col-xl-3 col-sm-6 col-12 mb-4">-->
+<!--        <div class="card">-->
+<!--          <div class="card-body">-->
+<!--            <div class="d-flex justify-content-between px-md-1">-->
+<!--              <div class="align-self-center">-->
+<!--                <i class="fas fa-map-marker-alt text-danger fa-3x"></i>-->
+<!--              </div>-->
+<!--              <div class="text-end">-->
+<!--                <h3>423</h3>-->
+<!--                <p class="mb-0">Total Visits</p>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--      </div>-->
+<!--    </div>-->
+<!--  </section>-->
+<!--</div>-->
+
+
+<!--{% endblock %}-->
+
+
 {% extends 'home_page/base.html'%}
-
-
 {% block content%}
-  <section id="hero" class="d-flex flex-column justify-content-center">
-    <div class="container" data-aos="zoom-in" data-aos-delay="100">
-       <h1>Coach Helper</h1>
-      <p>Это Ваш фитнес <span class="typed" data-typed-items="помощник, дневник, календарь"></span></p>
-<div class="mt-5">
-    <h3> Добро пожаловать, {{ user.username }}!</h3>
-
-<button type="button" class="btn btn-light mt-4"><a href="{% url 'logout'%}"> Выйти из учетной записи </a></button>
-
-
+<div class="wrapper">
+  <div class="stage">
+    <div class="intro_info">
+      <h1>Привет, клиент!</h1>
+      <h2 class="text_intro">Здесь Вы сможете получить информацию о своих тренировках.</h2>
+    </div>
+    <img src="/img/2022-12-09 16.37.17.jpg" alt="">
+  </div>
 </div>
-
-  </section><!-- End Hero -->
-<div class="container-fluid">
-  <section>
-    <div class="row">
-      <div class="col-12 mt-3 mb-1">
-        <h5 class="text-uppercase">Minimal Statistics Cards</h5>
-        <p>Statistics on minimal cards.</p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-xl-3 col-sm-6 col-12 mb-4">
-        <div class="card">
-          <div class="card-body">
-            <div class="d-flex justify-content-between px-md-1">
-              <div class="align-self-center">
-                <i class="fas fa-pencil-alt text-info fa-3x"></i>
-              </div>
-              <div class="text-end">
-                <h3>278</h3>
-                <p class="mb-0">New Posts</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-xl-3 col-sm-6 col-12 mb-4">
-        <div class="card">
-          <div class="card-body">
-            <div class="d-flex justify-content-between px-md-1">
-              <div class="align-self-center">
-                <i class="far fa-comment-alt text-warning fa-3x"></i>
-              </div>
-              <div class="text-end">
-                <h3>156</h3>
-                <p class="mb-0">New Comments</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-xl-3 col-sm-6 col-12 mb-4">
-        <div class="card">
-          <div class="card-body">
-            <div class="d-flex justify-content-between px-md-1">
-              <div class="align-self-center">
-                <i class="fas fa-chart-line text-success fa-3x"></i>
-              </div>
-              <div class="text-end">
-                <h3>64.89 %</h3>
-                <p class="mb-0">Bounce Rate</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-xl-3 col-sm-6 col-12 mb-4">
-        <div class="card">
-          <div class="card-body">
-            <div class="d-flex justify-content-between px-md-1">
-              <div class="align-self-center">
-                <i class="fas fa-map-marker-alt text-danger fa-3x"></i>
-              </div>
-              <div class="text-end">
-                <h3>423</h3>
-                <p class="mb-0">Total Visits</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-      </div>
-    </div>
-  </section>
-</div>
-
-
 {% endblock %}
