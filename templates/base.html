@@ -21,6 +21,7 @@
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <a href="{% url 'homepage' %}">Главная</a>
             <a href="{% url 'sessions_calendar' %}">Календарь</a>
+
             <a href="#">Контакты <br> тренера</a>
             {% if user.is_authenticated %}
                 <a href="{% url 'create_user_profile'%}">Мой профиль</a>
