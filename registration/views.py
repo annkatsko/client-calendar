@@ -6,7 +6,7 @@ from django.urls import reverse
 from django.views.generic import TemplateView, UpdateView
 from .forms import UserRegistrationForm, UserEditForm, ProfileEditForm
 from .models import Profile
-
+from django.contrib import messages
 
 @login_required
 def edit(request):
@@ -82,7 +82,8 @@ def register_user(request):
             profile.first_name = user_form.cleaned_data['first_name'].capitalize()
             profile.last_name = user_form.cleaned_data['last_name'].capitalize()
             profile.email = user_form.cleaned_data['email']
-            return HttpResponseRedirect(reverse('login'))
+            messages.success(request, 'Вы успешно зарегистрировались!')
+
     else:
         user_form = UserRegistrationForm()
     return render(request, 'registration/register_user.html', {'form': user_form})
