@@ -1,4 +1,4 @@
-{% extends 'home_page/base.html'%}
+{% extends 'base.html'%}
 
 
 {% block content%}
@@ -12,19 +12,26 @@
   </div>
 
   <div class="card-body">
-    <h5 class="card-title">{{user.first_name}} , Ваши тренировки</h5>
+    <h5 class="card-title">{{user.first_name}} , Ваши тренировки:</h5>
       <ul class="list-group">
-          {% if info %}
-            {% for val in info %}
-                <li class="list-group-item">{{val}}</li>
-            {% endfor %}
-          <button type="button" class="btn btn-light mt-4"><a href="https://t.me/katsko_fit"> Написать тренеру в Telegram</a></button>
-                    <button type="button" class="btn btn-light mt-4"><a href="https://instagram.com/katsko_trener"> Написать тренеру в Instagram</a></button>
+          {% if user.first_name and user.last_name %}
+              {% if info %}
+                {% for val in info %}
+                    <li class="list-group-item">{{val}}</li>
+                {% endfor %}
+              <button type="button" class="btn btn-light mt-4"><a href="https://t.me/katsko_fit"> Написать тренеру в Telegram</a></button>
+          <button type="button" class="btn btn-light mt-4"><a href="https://instagram.com/katsko_trener"> Написать тренеру в Instagram</a></button>
+
+            {% else %}
+          <span>У вас нет назначенных тренировок</span>
+          <button type="button" class="btn btn-light mt-4"><a href="https://instagram.com/katsko_trener"> Написать тренеру в Instagram</a></button>
+            {% endif %}
+            {% else %}
+                <button type="button" class="btn btn-light mt-4"><a href="{% url 'create_user_profile' %}"> Заполниите профиль, чтобы получить тренировки</a></button>
 
 
-        {% else %}
-            <button type="button" class="btn btn-light mt-4"><a href="{% url 'create_user_profile' %}"> Заполниите профиль, чтобы получить тренировки</a></button>
-        {% endif %}
+
+          {% endif %}
 
         </ul>
 
