@@ -4,14 +4,19 @@ from .models import Profile
 
 
 class UserRegistrationForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        # first call parent's constructor
+        super(UserRegistrationForm, self).__init__(*args, **kwargs)
+        # there's a `fields` property now
+        self.fields['first_name'].required = True
+        self.fields['last_name'].required = True
     password = forms.CharField(label='Пароль', widget=forms.PasswordInput, min_length=4, )
     password2 = forms.CharField(label='Повторите пароль', widget=forms.PasswordInput, min_length=4)
 
     class Meta:
         model = User
         fields = ('username', 'first_name', 'last_name', 'email')
-        help_texts = {'first_name': 'Обязательно введите полное имя.',
-                      'last_name': 'Обязательно введите правильную фамилию.',
+        help_texts = {'first_name': 'Введите полное имя.',
                       'username': 'Используйте только буквы, цифры и символы @/./+/-/_.'}
 
 
