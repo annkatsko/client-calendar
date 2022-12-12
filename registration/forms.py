@@ -4,12 +4,16 @@ from .models import Profile
 
 
 class UserRegistrationForm(forms.ModelForm):
-    password = forms.CharField(label='Password', widget=forms.PasswordInput)
-    password2 = forms.CharField(label='Repeat password', widget=forms.PasswordInput)
+    password = forms.CharField(label='Пароль', widget=forms.PasswordInput, min_length=4, )
+    password2 = forms.CharField(label='Повторите пароль', widget=forms.PasswordInput, min_length=4)
 
     class Meta:
         model = User
         fields = ('username', 'first_name', 'last_name', 'email')
+        help_texts = {'first_name': 'Обязательно введите полное имя.',
+                      'last_name': 'Обязательно введите правильную фамилию.',
+                      'username': 'Используйте только буквы, цифры и символы @/./+/-/_.'}
+
 
     def clean_password2(self):
         cd = self.cleaned_data

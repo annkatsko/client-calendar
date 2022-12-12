@@ -79,10 +79,10 @@ def register_user(request):
             new_user.set_password(user_form.cleaned_data['password'])
             new_user.save()
             profile = Profile.objects.create(user=new_user)
-            profile.first_name = user_form.cleaned_data['first_name']
-            profile.last_name = user_form.cleaned_data['last_name']
+            profile.first_name = user_form.cleaned_data['first_name'].capitalize()
+            profile.last_name = user_form.cleaned_data['last_name'].capitalize()
             profile.email = user_form.cleaned_data['email']
             return HttpResponseRedirect(reverse('login'))
     else:
-        form = UserRegistrationForm()
-    return render(request, 'registration/register_user.html', {'form': form})
+        user_form = UserRegistrationForm()
+    return render(request, 'registration/register_user.html', {'form': user_form})
