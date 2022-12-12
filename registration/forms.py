@@ -5,9 +5,7 @@ from .models import Profile
 
 class UserRegistrationForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
-        # first call parent's constructor
         super(UserRegistrationForm, self).__init__(*args, **kwargs)
-        # there's a `fields` property now
         self.fields['first_name'].required = True
         self.fields['last_name'].required = True
     password = forms.CharField(label='Пароль', widget=forms.PasswordInput, min_length=4, )
