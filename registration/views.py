@@ -1,6 +1,4 @@
-from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
-from django.views.generic import UpdateView
 from .forms import UserRegistrationForm
 from .models import Profile
 from django.contrib import messages
