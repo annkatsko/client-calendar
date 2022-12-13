@@ -18,6 +18,8 @@
                             {{ profile_form|crispy }}
                         </div>
                             <button class="btn btn-dark btn-lg btn-block mb-3" type="submit">Сохранить</button>
+                            {% else%}
+                            <a href="{% url 'login'%}" style="display: block;"> Войдите в свой аккаунт</a>
                 {% endif %}
                         </div>
                     </form>
