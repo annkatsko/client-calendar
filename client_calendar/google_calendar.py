@@ -1,9 +1,6 @@
 import datetime
 import os.path
-
-from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
-from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 
@@ -53,7 +50,6 @@ def get_events(user_name):
                 session_date = f'{start[8:10]}.{start[5:7]}.{start[0:4]} в {start[11:16]}'
                 user_events.append(f'{session_date}')  #event['htmlLink'] - link to event
         return user_events
-
     except HttpError:
         raise HttpError
 
