@@ -11,32 +11,41 @@
             <h5 class="card-header">Календарь тренировок</h5>
                 <div class="card-body">
 
-        {% if user.first_name and user.last_name %}
-              {% if info %}
-                {% for val in info %}
-            <div class="card mb-3">
-                <div class="card-body">
-                    <h5 class="">{{val}}</h5>
-                </div>
-            </div>
-                {% endfor %}
-                    <p class="card-text ">Жду тебя на тренировке! <br>Напоминаю, что отмена возможна не менее чем <mark>за 3 часа до тренировки!)</mark></p>
+        {% if  not user.first_name or  not user.last_name %}
+                    <h5 class="card-title mb-3">Заполните поля Имени и Фамилии в своем профиле, чтобы получить информацию о тренировках</h5>
+                    <a href="{% url 'create_user_profile' %}" class="btn btn-primary mt-3">Отредактировать свой профиль</a>
 
-            {% else %}
+                    {% else %}
+                        {% if info %}
+                            {% for val in info %}
+                                <div class="card mb-3">
+                                    <div class="card-body">
+                                        <h5 class="">{{val}}</h5>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                            <p class="card-text ">Жду тебя на тренировке! <br>Напоминаю, что отмена возможна не менее чем <mark>за 3 часа до тренировки!)</mark></p>
+                            <div class="row row-cols-2">
+                        <div class="col"><a href="https://t.me/katsko_fit" class="btn btn-primary mt-3">Написать тренеру в Telegram</a></div>
+                        <div class="col"><a href="https://instagram.com/katsko_trener" class="btn btn-warning mt-3">Написать тренеру в Instagram</a></div>
 
-            <h5 class="card-title mb-3">У вас нет назначенных тренировок</h5>
-            <p class="card-text">Напоминаю, что только регулярные действия принесут результат. <br>
-                Рекомендую тренироваться минимум 2 раза в неделю.</p>
+                    </div>
+                        {% else %}
 
-
-                {% endif %}
-                {% endif %}
-
+                        <h5 class="card-title mb-3">У вас нет назначенных тренировок</h5>
+                        <p class="card-text">Напоминаю, что только регулярные действия принесут результат. <br>
+                            Рекомендую тренироваться минимум 2 раза в неделю.</p>
                     <div class="row row-cols-2">
                         <div class="col"><a href="https://t.me/katsko_fit" class="btn btn-primary mt-3">Написать тренеру в Telegram</a></div>
                         <div class="col"><a href="https://instagram.com/katsko_trener" class="btn btn-warning mt-3">Написать тренеру в Instagram</a></div>
 
                     </div>
+
+                    {% endif %}
+                    {% endif %}
+
+
+
 
 
                 </div>
@@ -46,8 +55,7 @@
 </div>
       </div>
     </div>
-
-            {% else %}
+{% else %}
     <div class="container">
         <div class="row">
     <div class="col-md-6 offset-md-3 ">
@@ -60,5 +68,5 @@
 </div>
             </div>
         </div>
-            {% endif %}
+{% endif %}
 {% endblock %}
