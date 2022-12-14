@@ -3,21 +3,16 @@
 
 {% block content%}
 <div id="main">
-
             <div class="stage">
                 <div class="intro_info">
-                    {% if user.is_authenticated %}
+                    {% if user.is_authenticated and user.first_name%}
                        <h1>Привет, {{user.first_name}}!</h1>
-
-                    {% else %}
+                        {% else %}
                         <h1>Привет, клиент!</h1>
-                    {% endif %}
-
+                        {% endif %}
                     <hr>
-                    <h2 class="text_intro">Здесь Вы сможете получить информацию о своих тренировках.</h2>
+                    <h2 class="text_intro">Здесь ты сможешь получить информацию о своих тренировках.</h2>
                 </div>
-
             </div>
-
       </div>
 {% endblock %}

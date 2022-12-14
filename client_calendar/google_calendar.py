@@ -48,10 +48,11 @@ def get_events(user_name):
             return None
 
         for event in events:
-            start = event['start'].get('dateTime', event['start'].get('date'))
-            readeble_start = datetime.datetime.strptime(start[:19], '%Y-%m-%dT%H:%M:%S')
             if event['summary'] == user_name:
-                user_events.append(f'{readeble_start}')  #event['htmlLink'] - link to event
+                start = event['start'].get('dateTime', event['start'].get('date'))
+                readable_start = datetime.datetime.strptime(start[:19], '%Y-%m-%dT%H:%M:%S')
+
+                user_events.append(f'{readable_start}')  #event['htmlLink'] - link to event
         return user_events
 
     except HttpError:

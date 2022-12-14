@@ -2,49 +2,63 @@
 
 
 {% block content%}
-<div class="container">
-
+<!--добавить если профиль не заполнен-->
+{% if user.is_authenticated %}
+                <div class="container">
   <div class="row">
-    <div class="col-md-6 offset-md-3">
-        <div class="card text-center mt-5">
-  <div class="card-header">
-    Информация
-  </div>
+    <div class="col-md-6 offset-md-3 ">
+        <div class="card">
+            <h5 class="card-header">Календарь тренировок</h5>
+                <div class="card-body">
 
-  <div class="card-body">
-    <h5 class="card-title">{{user.first_name}} , Ваши тренировки:</h5>
-      <ul class="list-group">
-          {% if user.first_name and user.last_name %}
+        {% if user.first_name and user.last_name %}
               {% if info %}
                 {% for val in info %}
-                    <li class="list-group-item">{{val}}</li>
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="">{{val}}</h5>
+                </div>
+            </div>
                 {% endfor %}
-              <button type="button" class="btn btn-light mt-4"><a href="https://t.me/katsko_fit"> Написать тренеру в Telegram</a></button>
-          <button type="button" class="btn btn-light mt-4"><a href="https://instagram.com/katsko_trener"> Написать тренеру в Instagram</a></button>
+                    <p class="card-text ">Жду тебя на тренировке! <br>Напоминаю, что отмена возможна не менее чем <mark>за 3 часа до тренировки!)</mark></p>
 
             {% else %}
-          <span>У вас нет назначенных тренировок</span>
-          <button type="button" class="btn btn-light mt-4"><a href="https://instagram.com/katsko_trener"> Написать тренеру в Instagram</a></button>
-            {% endif %}
-            {% else %}
-                <button type="button" class="btn btn-light mt-4"><a href="{% url 'create_user_profile' %}"> Заполниите профиль, чтобы получить тренировки</a></button>
+
+            <h5 class="card-title mb-3">У вас нет назначенных тренировок</h5>
+            <p class="card-text">Напоминаю, что только регулярные действия принесут результат. <br>
+                Рекомендую тренироваться минимум 2 раза в неделю.</p>
 
 
+                {% endif %}
+                {% endif %}
 
-          {% endif %}
+                    <div class="row row-cols-2">
+                        <div class="col"><a href="https://t.me/katsko_fit" class="btn btn-primary mt-3">Написать тренеру в Telegram</a></div>
+                        <div class="col"><a href="https://instagram.com/katsko_trener" class="btn btn-warning mt-3">Написать тренеру в Instagram</a></div>
 
-        </ul>
+                    </div>
 
 
-  </div>
-  <div class="card-footer text-muted">
-    ...
-  </div>
+                </div>
+
+
 </div>
-
+</div>
+      </div>
     </div>
-  </div>
+
+            {% else %}
+    <div class="container">
+        <div class="row">
+    <div class="col-md-6 offset-md-3 ">
+               <div class="alert alert-danger" role="alert">
+                    <h4 class="alert-heading">Вы еще не зарегистрировались, чтобы получать информацию о ваших тренировках.</h4>
+                    <p>Регистрация не займет много времени, но позволит всегда быть в курсе своих тренировок</p>
+                    <hr>
+                    <a href="{% url 'login' %}" class="btn btn-primary mt-3">Войдите или зарегистрируйтесь</a>
+                   </div>
 </div>
-
-
+            </div>
+        </div>
+            {% endif %}
 {% endblock %}

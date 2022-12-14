@@ -16,27 +16,6 @@ hr {
     color: #FFFFFF;
 }
 
-
-.wrapper {
-    width: 1140px;
-    margin: 0 auto;
-}
-
-
-.stage {
-    margin-top: 2rem;
-    display: flex;
-    align-items: center;
-}
-
-img {
-    height: 45%;
-    width: 40%;
-    margin: 0;
-    display: block;
-    border-radius: 5%;
-}
-
 .text_intro {
     margin-top: 2rem;
 }
@@ -95,7 +74,8 @@ img {
 .container {
     display: inline-block;
     cursor: pointer;
-
+    margin-top: 2rem;
+    margin-left: 2rem;
 }
 
 .bar1, .bar2, .bar3 {
@@ -125,11 +105,6 @@ img {
 
 
 @media (max-width: 576px) {
-    .wrapper {
-        width: 100%;
-        margin: 0 auto;
-    }
-
     .menu {
         display: flex;
         flex-direction: column;

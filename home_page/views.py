@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from registration.forms import UserEditForm, ProfileEditForm
 
 
-def show_homepage(request):
+def view_homepage(request):
     return render(request, 'home_page/homepage.html')
 
 
@@ -18,6 +18,10 @@ def view_and_edit_profile(request):
     else:
         user_form = UserEditForm(instance=request.user)
         profile_form = ProfileEditForm(instance=request.user.profile)
-    return render(request,'registration/create_profile.html',
-                      {'user_form': user_form,
-                       'profile_form': profile_form})
+    return render(request, 'registration/edit_profile.html',
+                            {'user_form': user_form,
+                            'profile_form': profile_form})
+
+
+def view_coach_contacts_info(request):
+    return render(request, 'home_page/contacts.html')

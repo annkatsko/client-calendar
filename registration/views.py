@@ -6,7 +6,7 @@ from django.contrib import messages
 
 # class ProfileCreatePageView(LoginRequiredMixin, UpdateView):
 #     model = Profile
-#     template_name = 'registration/create_profile.html'
+#     template_name = 'registration/edit_profile.html'
 #     fields = ['first_name', 'last_name', 'gym_name', 'phone_number', 'birthday_date', 'instagram', 'telegram',
 #               'email', 'goal']
 #     success_url = '/welcome/'
