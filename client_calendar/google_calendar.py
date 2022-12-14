@@ -50,9 +50,8 @@ def get_events(user_name):
         for event in events:
             if event['summary'] == user_name:
                 start = event['start'].get('dateTime', event['start'].get('date'))
-                readable_start = datetime.datetime.strptime(start[:19], '%Y-%m-%dT%H:%M:%S')
-
-                user_events.append(f'{readable_start}')  #event['htmlLink'] - link to event
+                session_date = f'{start[8:10]}.{start[5:7]}.{start[0:4]} в {start[11:16]}'
+                user_events.append(f'{session_date}')  #event['htmlLink'] - link to event
         return user_events
 
     except HttpError:
@@ -60,7 +59,7 @@ def get_events(user_name):
 
 
 if __name__ == '__main__':
-    get_events('Анна Катько')
+    get_events('Саша Богатко')
 
 
 
