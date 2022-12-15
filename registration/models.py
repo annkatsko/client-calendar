@@ -30,7 +30,7 @@ class Profile(models.Model):
 
 
     def __str__(self):
-        return str(self.user)
+        return self.user.username
 
     def get_absolute_url(self):
         return reverse('profile', kwargs={'username': self.user.username})

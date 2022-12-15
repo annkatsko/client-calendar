@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from .models import Profile
 import phonenumbers
 
+
 class UserRegistrationForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(UserRegistrationForm, self).__init__(*args, **kwargs)
@@ -29,11 +30,10 @@ class UserRegistrationForm(forms.ModelForm):
         return self.cleaned_data
 
 
-
 class UserEditForm(forms.ModelForm):
     class Meta:
         model = User
-        fields = ('first_name', 'last_name', 'email')
+        fields = ('username', 'first_name', 'last_name', 'email')
 
 
 class ProfileEditForm(forms.ModelForm):

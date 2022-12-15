@@ -24,7 +24,8 @@
 
             <a href="{% url 'contacts' %}">Контакты <br> тренера</a>
             {% if user.is_authenticated %}
-                <a href="{% url 'create_user_profile'%}">Мой профиль</a>
+            <a href="{% url 'create_user_profile'%}">Редактировать профиль</a>
+                <a href="{% url 'users_profile'%}">Мой профиль</a>
             <br> <br> <br>
                 <a href="{% url 'logout'%}">Выйти</a>
             {% else %}

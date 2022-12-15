@@ -25,3 +25,8 @@ def view_and_edit_profile(request):
 
 def view_coach_contacts_info(request):
     return render(request, 'home_page/contacts.html')
+
+
+@login_required
+def view_profile(request):
+    return render(request, 'home_page/portfolio_detail.html')

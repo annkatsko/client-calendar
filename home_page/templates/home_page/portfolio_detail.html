@@ -1,0 +1,162 @@
+{% extends 'base.html'%}
+
+
+{% block content %}
+
+
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-9 col-lg-8 col-xl-6">
+          <div class="card" style="border-radius: 15px;">
+            <div class="card-body p-5">
+                {% if request.user.is_authenticated %}
+                <h2 class="text-xl-uppercase text-sm-lowercase text-center fs-2 text-dark">Мой профиль</h2>
+                    <div class="card mt-3">
+                        <div class="card-header">
+                        Username
+                        </div>
+                    <ul class="list-group list-group-flush">
+                    <li class="list-group-item">{{user.username}}</li>
+                    </ul>
+                    </div>
+                <div class="card mt-3">
+                        <div class="card-header">
+                        Имя
+                        </div>
+                    <ul class="list-group list-group-flush">
+                    <li class="list-group-item">{{user.first_name}}</li>
+                    </ul>
+
+                </ul>
+                </div>
+                <div class="card mt-3">
+                        <div class="card-header">
+                        Фамилия
+                        </div>
+                    <ul class="list-group list-group-flush">
+                    <li class="list-group-item">{{user.last_name}}</li>
+                    </ul>
+
+                </ul>
+                </div>
+                <div class="card mt-3">
+                        <div class="card-header">
+                        Email
+                        </div>
+                    <ul class="list-group list-group-flush">
+                        {% if user.profile.email %}
+                    <li class="list-group-item">{{user.profile.email}}</li>
+                        {% else %}
+                        <li class="list-group-item">Не указан</li>
+                        {% endif %}
+                    </ul>
+
+                </ul>
+                </div>
+                <div class="card mt-3">
+                        <div class="card-header">
+                        Номер телефон
+                        </div>
+                    <ul class="list-group list-group-flush">
+                        {% if user.profile.phone_number %}
+                    <li class="list-group-item">{{user.profile.phone_number}}</li>
+                        {% else %}
+                        <li class="list-group-item">Не указан</li>
+                        {% endif %}
+                    </ul>
+
+                </ul>
+                </div>
+                <div class="card mt-3">
+                        <div class="card-header">
+                        День рождения
+                        </div>
+                    <ul class="list-group list-group-flush">
+                        {% if user.profile.birthday_date %}
+                    <li class="list-group-item">{{user.profile.birthday_date}}</li>
+                        {% else %}
+                        <li class="list-group-item">Не указан</li>
+                        {% endif %}
+                    </ul>
+
+                </ul>
+                </div>
+                <div class="card mt-3">
+                        <div class="card-header">
+                        Instagram
+                        </div>
+                    <ul class="list-group list-group-flush">
+                        {% if user.profile.instagram %}
+                    <li class="list-group-item">{{user.profile.instagram}}</li>
+                        {% else %}
+                        <li class="list-group-item">Не указан</li>
+                        {% endif %}
+                    </ul>
+
+                </ul>
+                </div>
+                <div class="card mt-3">
+                        <div class="card-header">
+                        Telegram
+                        </div>
+                    <ul class="list-group list-group-flush">
+                        {% if user.profile.telegram %}
+                    <li class="list-group-item">{{user.profile.telegram}}</li>
+                        {% else %}
+                        <li class="list-group-item">Не указан</li>
+                        {% endif %}
+                    </ul>
+
+                </ul>
+                </div>
+                <div class="card mt-3">
+                        <div class="card-header">
+                        Зал
+                        </div>
+                    <ul class="list-group list-group-flush">
+                        {% if user.profile.gym_name %}
+                    <li class="list-group-item">{{user.gym_name}}</li>
+                        {% else %}
+                        <li class="list-group-item">Не указан</li>
+                        {% endif %}
+                    </ul>
+
+                </ul>
+                </div>
+                <div class="card mt-3">
+                        <div class="card-header">
+                        Цель
+                        </div>
+                    <ul class="list-group list-group-flush">
+                    <li class="list-group-item">{{user.goal}}</li>
+                    </ul>
+
+                </ul>
+                </div>
+                <a href="{% url 'create_user_profile' %}" class="gradient-button" style="text-decoration: none;
+                  display: block;
+                  text-align: center;
+                  color: white;
+                  padding: 10px 30px;
+                  margin: 30px 20px;
+                  border-radius: 10px;
+                  font-family: 'Montserrat', sans-serif;
+                  text-transform: uppercase;
+                  letter-spacing: 2px;
+                  background-image: linear-gradient(to right, #9EEFE1 0%, #4830F0 51%, #9EEFE1 100%);
+                  background-size: 200% auto;
+                  box-shadow: 0 0 20px rgba(0, 0, 0, .1);
+                  transition: .5s;">
+                    Редактировать профиль</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+                        {% else %}
+                        <a href="{% url 'login'%}">Войти</a>
+                        {% endif %}
+
+
+
+ {% endblock %}
