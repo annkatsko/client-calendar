@@ -17,12 +17,16 @@ class UserRegistrationForm(forms.ModelForm):
         help_texts = {'first_name': 'Введите полное имя.',
                       'username': 'Используйте только буквы, цифры и символы @/./+/-/_.'}
 
-
     def clean_password2(self):
         cd = self.cleaned_data
         if cd['password'] != cd['password2']:
             raise forms.ValidationError('Пароли не совпадают.')
         return cd['password2']
+
+    def clean(self):
+        self.cleaned_data['first_name'] = self.cleaned_data['first_name'].capitalize()
+        self.cleaned_data['last_name'] = self.cleaned_data['last_name'].capitalize()
+        return self.cleaned_data
 
 
 
