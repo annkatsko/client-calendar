@@ -12,8 +12,8 @@ class Profile(models.Model):
     )
 
     GYM_NAME = (
-        ('NB', 'Новая Боровая "Vibe"'),
-        ('NEM', 'Немига "GymBox"')
+        ('Новая Боровая "Vibe', 'Новая Боровая "Vibe"'),
+        ('Немига "GymBox"', 'Немига "GymBox"')
     )
 
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)

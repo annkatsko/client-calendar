@@ -109,30 +109,6 @@
 
                 </ul>
                 </div>
-                <div class="card mt-3">
-                        <div class="card-header">
-                        Зал
-                        </div>
-                    <ul class="list-group list-group-flush">
-                        {% if user.profile.gym_name %}
-                    <li class="list-group-item">{{user.gym_name}}</li>
-                        {% else %}
-                        <li class="list-group-item">Не указан</li>
-                        {% endif %}
-                    </ul>
-
-                </ul>
-                </div>
-                <div class="card mt-3">
-                        <div class="card-header">
-                        Цель
-                        </div>
-                    <ul class="list-group list-group-flush">
-                    <li class="list-group-item">{{user.goal}}</li>
-                    </ul>
-
-                </ul>
-                </div>
                 <a href="{% url 'create_user_profile' %}" class="gradient-button" style="text-decoration: none;
                   display: block;
                   text-align: center;

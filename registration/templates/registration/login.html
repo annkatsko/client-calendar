@@ -12,6 +12,14 @@
 
               <h2 class="fw-bold mb-2  text-uppercase">Войдите</h2>
                   <p class="text-white-50 mb-4">Введите имя пользователя и пароль</p>
+                {% if messages %}
+
+        {% for message in messages %}
+            <button class="btn btn-primary {{ message.tags }}" type="button">{{ message|safe }}</button>
+
+        {% endfor %}
+
+{% endif %}
 
               <form  method="POST">
                         {% csrf_token %}
@@ -22,7 +30,7 @@
                             <button class="btn btn-outline-light btn-lg px-5 mt-3" type="submit">Войти</button>
                     <div class="pt-1 mb-4"></div>
                     </div>
-                    <a class="small text-white" href="#!">Забыли пароль?</a>
+                    <a class="small text-white" href="{% url 'password_reset' %}">Забыли пароль?</a>
                     <p class="mb-5 pb-lg-2 mt-3 text-decoration-none">Еще нет аккаунта? <br> <a class="text-white" style="color: #393f81;" href="{% url 'registration' %}">Зарегистрироваться здесь</a></p>
 <!--                    <a href="#!" class="small text-muted">Terms of use.</a>-->
 <!--                    <a href="#!" class="small text-muted">Privacy policy</a>-->

@@ -16,7 +16,6 @@
     <title>Document</title>
 </head>
 <body>
-
         <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <a href="{% url 'homepage' %}">Главная</a>
@@ -24,8 +23,7 @@
 
             <a href="{% url 'contacts' %}">Контакты <br> тренера</a>
             {% if user.is_authenticated %}
-            <a href="{% url 'create_user_profile'%}">Редактировать профиль</a>
-                <a href="{% url 'users_profile'%}">Мой профиль</a>
+            <a href="{% url 'users_profile'%}">Мой профиль</a>
             <br> <br> <br>
                 <a href="{% url 'logout'%}">Выйти</a>
             {% else %}

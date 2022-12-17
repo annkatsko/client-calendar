@@ -2,6 +2,8 @@ from django import forms
 from django.contrib.auth.models import User
 from .models import Profile
 import phonenumbers
+from django import forms
+from django.contrib.auth.models import User
 
 
 class UserRegistrationForm(forms.ModelForm):
@@ -9,6 +11,7 @@ class UserRegistrationForm(forms.ModelForm):
         super(UserRegistrationForm, self).__init__(*args, **kwargs)
         self.fields['first_name'].required = True
         self.fields['last_name'].required = True
+        self.fields['email'].required = True
     password = forms.CharField(label='Пароль', widget=forms.PasswordInput, min_length=4, )
     password2 = forms.CharField(label='Повторите пароль', widget=forms.PasswordInput, min_length=4)
 
@@ -46,16 +49,27 @@ class ProfileEditForm(forms.ModelForm):
                       'phone_number': 'Введите номер телефона в формате +375...'
                       }
 
+
+
     def clean(self):
         cleaned_data = super().clean()
         user_instagram = cleaned_data['instagram']
         user_telegram = cleaned_data['telegram']
         string_user_phone = cleaned_data['phone_number']
-        parsed_user_phone = phonenumbers.parse(string_user_phone, 'BY')
-        if '@' in user_instagram or '@' in user_telegram:
-            raise forms.ValidationError('Введите ник без "@"')
-        if not phonenumbers.is_valid_number(parsed_user_phone):
-            raise forms.ValidationError('Введите корректный номер телефона.')
+
+        if string_user_phone:
+            parsed_user_phone = phonenumbers.parse(string_user_phone, 'BY')
+            if not phonenumbers.is_valid_number(parsed_user_phone):
+                raise forms.ValidationError('Введите корректный номер телефона.')
+
+        if user_telegram:
+            if '@' in user_telegram:
+                raise forms.ValidationError('Введите ник без "@"')
+
+        if user_instagram:
+            if '@' in user_instagram or '@' in user_telegram:
+                raise forms.ValidationError('Введите ник без "@"')
+
 
 
 

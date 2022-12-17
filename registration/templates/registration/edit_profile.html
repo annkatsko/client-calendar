@@ -10,6 +10,14 @@
             <div class="card-body p-5">
                 {% if request.user.is_authenticated %}
                 <h2 class="text-xl-uppercase text-sm-lowercase fs-2 text-center mb-2 text-dark">Редактировать профиль</h2>
+                    {% if messages %}
+
+        {% for message in messages %}
+            <button class="btn btn-primary {{ message.tags }}" type="button">{{ message|safe }}</button>
+
+        {% endfor %}
+
+{% endif %}
                     <form method="POST">
                         {% csrf_token %}
                         <div class="row">
