@@ -10,7 +10,7 @@ from googleapiclient.errors import HttpError
 
 SCOPES = ['https://www.googleapis.com/auth/calendar', 'https://www.googleapis.com/auth/calendar.readonly']
 
-calendarId = '4ef49f9c5a93b050a65df71b6445840cc97ce43859d93e6eaceeb9aa8c27fa12@group.calendar.google.com'
+
 SERVICE_ACCOUNT_FILE = '../credentials.json'
 
 
