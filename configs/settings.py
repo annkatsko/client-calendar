@@ -57,7 +57,7 @@ INSTALLED_APPS = [
     'bootstrap4',
     'home_page',
     'client_calendar',
-'widget_tweaks',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
